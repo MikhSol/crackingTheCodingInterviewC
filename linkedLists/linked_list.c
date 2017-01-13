@@ -1,3 +1,5 @@
+//linked_list.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,6 +17,10 @@ struct Node* createNode(int data) {
     node->next = NULL;
     node->prev = NULL;
     return node;
+}
+
+void initHeadNoad(int data) {
+    head = createNode(data);
 }
 
 void insertToHead(int data) {
