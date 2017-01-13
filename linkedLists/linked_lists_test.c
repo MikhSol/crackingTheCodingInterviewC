@@ -5,6 +5,6 @@
 
 int main()
 {
-  assert(false && "First unit test");
-  return 0;
+    assert(false && "First unit test");
+    return 0;
 }
