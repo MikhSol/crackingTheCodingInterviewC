@@ -2,9 +2,13 @@
 
 #include <assert.h>
 #include <stdbool.h>
+#include "../../c_double_linked_list/double_linked_list.h"
 
 int main()
 {
-    assert(false && "First unit test");
+    struct Node* h = initHeadNode(0);
+    printList(h);
+    clear(h);
+    
     return 0;
 }
