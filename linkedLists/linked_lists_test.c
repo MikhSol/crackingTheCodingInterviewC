@@ -38,6 +38,7 @@ void kth_to_last_test() {
     assert(8 == kth_to_last(test_case, 2));
     assert(5 == kth_to_last(test_case, 5));
     assert(0 == kth_to_last(test_case, 10));
+    assert(-1 == kth_to_last(test_case, 15));
     clear(test_case);
     printf("Kth to last: OK!\n");
 }

@@ -25,5 +25,13 @@ void remove_duplications(struct Node* head) {
 }
 
 int kth_to_last(struct Node* head, int k) {
-    return -1;
+    int len = length(head);
+    if (k > len) return -1;
+    int i = len - k;
+    struct Node* current = head;
+    while (i > 0) {
+        i--;
+        current = current->next;        
+    }
+    return current->data;
 }
