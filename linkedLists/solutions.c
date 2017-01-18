@@ -23,3 +23,7 @@ void remove_duplications(struct Node* head) {
         current = current->next;
     }
 }
+
+int kth_to_last(struct Node* head, int k) {
+    return -1;
+}

@@ -6,7 +6,7 @@
 #include "../../c_double_linked_list/double_linked_list.h"
 #include "solutions.h"
 
-static void remove_duplications_test() {
+void remove_duplications_test() {
     struct Node* result = create_node(0);
     struct Node* test_case = create_node(0);
 
@@ -27,9 +27,25 @@ static void remove_duplications_test() {
     printf("Duplication removing: OK!\n");
 }
 
+void kth_to_last_test() {
+    struct Node* test_case = create_node(0);
+
+    for (int i = 1; i < 10; ++i) {
+        add_last(test_case, i);
+    }
+
+    assert(9 == kth_to_last(test_case, 1));
+    assert(8 == kth_to_last(test_case, 2));
+    assert(5 == kth_to_last(test_case, 5));
+    assert(0 == kth_to_last(test_case, 10));
+    clear(test_case);
+    printf("Kth to last: OK!\n");
+}
+
 
 int main() {
     remove_duplications_test();
+    kth_to_last_test();
     
     return 0;
 }
