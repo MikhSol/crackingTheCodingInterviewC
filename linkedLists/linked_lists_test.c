@@ -131,6 +131,10 @@ void sum_lists_reverse_test() {
     add_last(result, 1);
     add_last(result, 9);
 
+    print_list(test1);
+    print_list(test2);
+    print_list(result);
+    
     struct Node* comp = sum_lists_reverse(test1, test2);
     assert(1 == compare_lists(result, comp));
     clear(test1);

@@ -79,6 +79,27 @@ struct Node* list_partition(struct Node* node, int x) {
     return head;   
 }
 
+int get_number_from_reversed_list(struct Node* n) {
+    struct Node* tmp = n;
+    int sum = tmp->data;
+    int i = 1;
+    tmp = tmp->next;
+    while (tmp != NULL) {
+        sum += tmp->data * 10 * i;
+        i *= 10;
+        tmp = tmp->next;
+    }
+    return sum;
+}
+
 struct Node* sum_lists_reverse(struct Node* n1, struct Node* n2) {
-    return n1;
+    int sum = get_number_from_reversed_list(n1) +
+        get_number_from_reversed_list(n2);
+    int i = 1;
+    struct Node* result;
+    while (sum) {
+        add_last(result, sum % 10);
+        sum /= 10;
+    }
+    return result;
 }
