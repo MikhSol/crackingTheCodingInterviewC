@@ -103,3 +103,20 @@ struct Node* sum_lists_reverse(struct Node* n1, struct Node* n2) {
     }
     return result;
 }
+
+struct Node* sum_lists_reverse_rec(struct Node* n1, struct Node* n2, int incr) {        
+    if (n1 == NULL && n2 == NULL && incr == 0) return NULL;
+    struct Node* result = create_node(0);
+    int val = incr;
+
+    if (n1 != NULL) val += n1->data;
+    if (n2 != NULL) val += n2->data;
+
+    result->data = val % 10;
+    if (n1 != NULL || n2 != NULL) {
+        result->next = sum_lists_reverse_rec(n1 != NULL ? n1->next: NULL,
+                                             n2 != NULL ? n2->next: NULL,
+                                             val / 10);
+    }
+    return result;
+}

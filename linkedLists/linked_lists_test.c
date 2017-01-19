@@ -130,10 +130,6 @@ void sum_lists_reverse_test() {
     struct Node* result = create_node(2);
     add_last(result, 1);
     add_last(result, 9);
-
-    print_list(test1);
-    print_list(test2);
-    print_list(result);
     
     struct Node* comp = sum_lists_reverse(test1, test2);
     assert(1 == compare_lists(result, comp));
@@ -143,6 +139,29 @@ void sum_lists_reverse_test() {
     printf("Reverse numbers summation: OK!\n");
 }
 
+void sum_lists_reverse_rec_test() {
+    struct Node* test1 = create_node(7);
+    add_last(test1, 1);
+    add_last(test1, 6);
+
+    struct Node* test2 = create_node(5);
+    add_last(test2, 9);
+    add_last(test2, 2);
+
+    struct Node* result = create_node(2);
+    add_last(result, 1);
+    add_last(result, 9);
+    
+    struct Node* comp;
+    comp = sum_lists_reverse_rec(test1, test2, 0);
+    assert(1 == compare_lists(result, comp));
+    clear(test1);
+    clear(test2);
+    clear(result);
+    printf("Reverse numbers summation recursive: OK!\n");
+}
+
+
 
 int main() {
     remove_duplications_test();
@@ -151,6 +170,7 @@ int main() {
     list_partition_recusive_test();
     list_partition_test();
     sum_lists_reverse_test();
+    sum_lists_reverse_rec_test();
     
     return 0;
 }
