@@ -43,6 +43,38 @@ void delete_node(struct Node* node) {
     }
 }
 
-struct Node* list_partition(struct Node* head, int x) {
+struct Node* list_partition_recursive(struct Node* head, int x) {
+    if (head->next != NULL) {
+        struct Node* node = list_partition_recursive(head->next, x);
+        if (head->data < x && node->data < x) {
+            head->next = node;
+            return head;
+        }
+        if (head->data >= x) {
+            add_last(node, head->data);
+            return node;
+        }
+        add_last(head, node->data);
+        return head;
+    }
     return head;
+}
+
+struct Node* list_partition(struct Node* node, int x) {
+    struct Node* head = node;
+    struct Node* tail = node;
+
+    while (node != NULL) {
+        struct Node* next = node->next;
+        if (node->data < x) {
+            node->next = head;
+            head = node;
+        } else {
+            tail->next = node;
+            tail = node;
+        }
+        node = next;
+    }
+    tail->next = NULL;
+    return head;   
 }
