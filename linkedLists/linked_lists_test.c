@@ -68,11 +68,41 @@ void delete_node_test() {
     printf("Delete node from the middle: OK!\n");
 }
 
+void list_partition_test() {
+    struct Node* test_case = create_node(3);
+    struct Node* result = create_node(3);
+
+    add_last(test_case, 5);
+    add_last(test_case, 8);
+    add_last(test_case, 5);
+    add_last(test_case, 0);
+    add_last(test_case, 2);
+    add_last(test_case, 1);
+
+    add_last(result, 1);
+    add_last(result, 2);
+    add_last(result, 0);
+    add_last(result, 5);
+    add_last(result, 5);
+    add_last(result, 8);
+
+    print_list(test_case);
+    print_list(result);
+
+    list_partition(test_case, 5);
+    print_list(test_case);
+    assert(1 == compare_lists(result, test_case));
+    clear(test_case);
+    clear(result);
+    printf("List Partition: OK!\n");
+}
+
 
 int main() {
     remove_duplications_test();
     kth_to_last_test();
     delete_node_test();
+    list_partition_test();
     
     return 0;
 }

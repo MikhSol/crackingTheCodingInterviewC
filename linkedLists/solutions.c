@@ -42,3 +42,7 @@ void delete_node(struct Node* node) {
         node->next = node->next->next;
     }
 }
+
+struct Node* list_partition(struct Node* head, int x) {
+    return head;
+}
