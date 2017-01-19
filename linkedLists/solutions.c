@@ -37,5 +37,8 @@ int kth_to_last(struct Node* head, int k) {
 }
 
 void delete_node(struct Node* node) {
-    return;
+    if (node->next != NULL) {
+        node->data = node->next->data;
+        node->next = node->next->next;
+    }
 }

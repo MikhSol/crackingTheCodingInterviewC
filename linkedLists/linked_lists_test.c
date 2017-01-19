@@ -63,6 +63,8 @@ void delete_node_test() {
 
     delete_node(sixth_node);
     assert(1 == compare_lists(result, test_case));
+    clear(test_case);
+    clear(result);
     printf("Delete node from the middle: OK!\n");
 }
 
