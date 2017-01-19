@@ -118,6 +118,27 @@ void list_partition_test() {
     printf("List Partition Iterative: OK!\n");
 }
 
+void sum_lists_reverse_test() {
+    struct Node* test1 = create_node(7);
+    add_last(test1, 1);
+    add_last(test1, 6);
+
+    struct Node* test2 = create_node(5);
+    add_last(test2, 9);
+    add_last(test2, 2);
+
+    struct Node* result = create_node(2);
+    add_last(result, 1);
+    add_last(result, 9);
+
+    struct Node* comp = sum_lists_reverse(test1, test2);
+    assert(1 == compare_lists(result, comp));
+    clear(test1);
+    clear(test2);
+    clear(result);
+    printf("Reverse numbers summation: OK!\n");
+}
+
 
 int main() {
     remove_duplications_test();
@@ -125,6 +146,7 @@ int main() {
     delete_node_test();
     list_partition_recusive_test();
     list_partition_test();
+    sum_lists_reverse_test();
     
     return 0;
 }

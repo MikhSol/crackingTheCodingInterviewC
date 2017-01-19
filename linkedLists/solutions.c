@@ -78,3 +78,7 @@ struct Node* list_partition(struct Node* node, int x) {
     tail->next = NULL;
     return head;   
 }
+
+struct Node* sum_lists_reverse(struct Node* n1, struct Node* n2) {
+    return n1;
+}
