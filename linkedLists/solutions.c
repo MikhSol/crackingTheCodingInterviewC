@@ -35,3 +35,7 @@ int kth_to_last(struct Node* head, int k) {
     }
     return current->data;
 }
+
+void delete_node(struct Node* node) {
+    return;
+}
