@@ -135,6 +135,18 @@ struct Node* sum_lists_reverse_rec(struct Node* n1, struct Node* n2, int incr) {
     return result;
 }
 
+int check_palindrome_recursive(struct Node** left, struct Node* right) {
+    if (right == NULL) return 1;
+
+    int isPalindrome = check_palindrome_recursive(left, right->next);
+    if (isPalindrome == 0) return 0;
+
+    isPalindrome = (right->data == (*left)->data);
+    *left = (*left)->next;
+
+    return isPalindrome;
+}
+
 int is_palindrome(struct Node* head) {
-    return -1;
+    return check_palindrome_recursive(&head, head);
 }

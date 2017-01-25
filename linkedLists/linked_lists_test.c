@@ -199,7 +199,6 @@ struct Node * prep_palindrome() {
     return result;
 }
 
-
 void is_palindrome_test() {
     struct Node* palindrome = prep_palindrome();
     struct Node* not_palindrome = prep_base_list();
