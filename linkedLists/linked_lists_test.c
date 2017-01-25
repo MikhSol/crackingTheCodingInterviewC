@@ -186,6 +186,31 @@ void sum_lists_reverse_rec_test() {
     printf("Reverse numbers summation recursive: OK!\n");
 }
 
+struct Node * prep_palindrome() {
+    struct Node* result = create_node(0);
+
+    for (int i = 1; i < 10; ++i) {
+        add_last(result, i);
+    }
+    for (int i = 10; i >= 0; --i) {
+        add_last(result, i);
+    }
+    
+    return result;
+}
+
+
+void is_palindrome_test() {
+    struct Node* palindrome = prep_palindrome();
+    struct Node* not_palindrome = prep_base_list();
+
+    assert(1 == is_palindrome(palindrome));
+    assert(0 == is_palindrome(not_palindrome));
+    clear(palindrome);
+    clear(not_palindrome);
+    printf("Is Palindrome: OK!\n");
+}
+
 int main() {
     remove_duplications_test();
     kth_to_last_test();
@@ -194,6 +219,7 @@ int main() {
     list_partition_test();
     sum_lists_reverse_test();
     sum_lists_reverse_rec_test();
+    is_palindrome_test();
     
     return 0;
 }

@@ -134,3 +134,7 @@ struct Node* sum_lists_reverse_rec(struct Node* n1, struct Node* n2, int incr) {
     }
     return result;
 }
+
+int is_palindrome(struct Node* head) {
+    return -1;
+}
