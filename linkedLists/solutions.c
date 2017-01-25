@@ -92,15 +92,29 @@ int get_number_from_reversed_list(struct Node* n) {
     return sum;
 }
 
+void remove_last_node(struct Node* head) {
+    struct Node* node = head;
+    struct Node* prev = node;
+    while (node->next != NULL) {
+        prev = node;
+        node = node->next;
+    }
+    prev->next = NULL;
+}
+
 struct Node* sum_lists_reverse(struct Node* n1, struct Node* n2) {
     int sum = get_number_from_reversed_list(n1) +
         get_number_from_reversed_list(n2);
-    int i = 1;
-    struct Node* result;
+    struct Node* result = create_node(0);
+    struct Node* node = result;
     while (sum) {
-        add_last(result, sum % 10);
+        node->data = sum % 10;
+        struct Node* tmpNode  = create_node(0);
+        node->next = tmpNode;
+        node = tmpNode;
         sum /= 10;
     }
+    remove_last_node(result);
     return result;
 }
 
